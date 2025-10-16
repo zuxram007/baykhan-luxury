@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAYKHAN — Timeless Fashion</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <!-- NAV -->
+<nav class="site-nav">
+  <ul class="nav-left nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#collection">Collection</a></li>
+  </ul>
+
+  <div class="nav-logo"></div>
+
+  <ul class="nav-right nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<!-- /NAV -->
+<!-- HERO SECTION -->
+<section class="gucci-hero">
+  <div class="hero-overlay"></div>
+  <img src="images/model3.jpg" alt="BAYKHAN Hero" class="hero-bg">
+  <div class="hero-content">
+    <h1 class="hero-title">BAYKHAN</h1>
+    <p class="hero-line"></p>
+    <a href="#collection" class="none" ></a>
+  </div>
+</section>
+
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <h2 class="fade-up">She was never ordinary.</h2>
+    <p>Luxury pieces designed to awaken confidence and fire.</p>
+    <a href="#collection" class="btn">Wear your crown</a>
+  </div>
+</section>
+
+  <header>
+    <h1></h1>
+    <nav>
+      <a href="#collection"></a>
+      <a href="#contact"></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class='fade-up' id="collection" class="products">
+      <h2>Collection</h2>
+      <div class="grid">
+        <a href="product.html">
+        <div class="card dresses">
+          <img src="images/dress1.jpg" alt="Black poison">
+          <div class="name">Black poison</div class="name"><p></p>
+          </div>
+         </a>
+        <a href="product.html?item=dress2" class="product-link">
+          <div class="card dresses">
+          <img src="images/dress2.jpg" alt="Grey seductress">
+          <div class="name">Grey seductress</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress3" class="product-link">
+         <div class="card dresses">
+          <img src="images/dress3.jpg" alt="Duchess">
+          <div class="name">Duchess</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress4" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress4.jpg" alt="White Siluet">
+          <div class="name">White Siluet</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress5" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress5.jpg" alt="Ivory ">
+          <div class="name">Ivory </div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress6" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress6.jpg" alt="Romana">
+          <div class="name">Romana</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress7" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress7.jpg" alt="Deuce blue">
+          <div class="name">Deuce blue</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress8" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress8.jpg" alt="Brown class">
+          <div class="name">Brown class</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress9" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress9.jpg" alt="Angel">
+          <div class="name">Angel</div class="name"></p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress10" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress10.jpg" alt="Grey Troika">
+          <div class="name">Grey Troika</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress11" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress11.jpg" alt="Angel 2">
+          <div class="name">Angel 2</div class="name"><p></p>
+          </div>
+        </a>
+        <a href="product.html?item=dress12" class="product-link">
+        <div class="card dresses">
+          <img src="images/dress12.jpg" alt="Moda">
+          <div class="name">Moda</div class="name"><p></p>
+          </div>
+        </a>
+      </div>
+    </section>
+<section class="philosophy">
+  <h2>The Essence of BAYKHAN</h2>
+  <p>
+    Inspired by strength. Wrapped in silk.  
+    BAYKHAN is more than attire — it’s an awakening.  
+    Every thread hums with confidence, scent, and fire.
+  </p>
+</section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: hello@baykhan.com</p>
+      <p>Instagram: @baykhan</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> BAYKHAN</p>
+  </footer>
+
+  <script src="scripts/scripts.js"></script>
+<div class="cursor"></div>
+<script>
+  const cursor = document.querySelector('.cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+</script>
+<script>
+const fadeEls = document.querySelectorAll('.fade-up');
+window.addEventListener('scroll', () => {
+  fadeEls.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+      el.classList.add('visible');
+    }
+  });
+});
+</script>
+<canvas id="sparkles"></canvas>
+<script>
+const canvas = document.getElementById('sparkles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let particles = [];
+for(let i = 0; i < 80; i++){
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5,
+    d: Math.random() * 1.5
+  });
+}
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = 'rgba(212,175,55,0.4)';
+  ctx.beginPath();
+  for(let i = 0; i < particles.length; i++){
+    let p = particles[i];
+    ctx.moveTo(p.x, p.y);
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+  }
+  ctx.fill();
+  update();
+}
+function update(){
+  for(let i = 0; i < particles.length; i++){
+    let p = particles[i];
+    p.y += 0.4;
+    if(p.y > canvas.height) p.y = 0;
+  }
+}
+setInterval(draw, 40);
+</script>
+
+</body>
+</html>

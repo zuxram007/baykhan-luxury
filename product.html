@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAYKHAN — Product</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #faf9f7;
+      color: #222;
+    }
+    .product-wrap {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 20px;
+    }
+    .product-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .product-title {
+      font-size: 30px;
+      font-weight: 600;
+      margin-top: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .product-price {
+      font-size: 22px;
+      color: #b38e35;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    .product-desc {
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+    .details {
+      margin-top: 25px;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+    .details p {
+      margin: 8px 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 26px;
+      background: #111;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .back-link:hover {
+      background: #b38e35;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-wrap">
+    <div class="product-image">
+      <img id="prod-image" src="" alt="Product Image" />
+    </div>
+    <h1 id="prod-title" class="product-title">Product Name</h1>
+    <div id="prod-price" class="product-price"></div>
+    <p id="prod-desc" class="product-desc"></p>
+    <div class="details">
+      <p><strong>Sizes:</strong> <span id="prod-sizes"></span></p>
+      <p><strong>Material:</strong> <span id="prod-material"></span></p>
+      <p><strong>Fabric:</strong> <span id="prod-fabric"></span></p>
+    </div>
+    <a href="index.html" class="back-link">← Back to Collection</a>
+  </div>
+
+  <script src="scripts/products.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("item");
+    const product = PRODUCTS.find(p => p.slug === slug);
+
+    if (product) {
+      document.getElementById("prod-image").src = product.image;
+      document.getElementById("prod-title").textContent = product.title;
+      document.getElementById("prod-price").textContent = product.price;
+      document.getElementById("prod-desc").textContent = product.desc;
+      document.getElementById("prod-sizes").textContent = product.sizes;
+      document.getElementById("prod-material").textContent = product.material;
+      document.getElementById("prod-fabric").textContent = product.fabric;
+    } else {
+      document.body.innerHTML = "<p style='text-align:center;margin-top:100px;'>Product not found.</p>";
+    }
+  </script>
+</body>
+</html>

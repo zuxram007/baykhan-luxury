@@ -1,0 +1,774 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Pro:wght@400;600&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Crimson Pro', serif;
+  margin: 0;
+  color: #222;
+  background-color: #fdfdfd;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: #222;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 5px;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+}
+
+nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #666;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  color: #888;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+.card {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  font-weight: 600;
+  margin: 12px 0 4px;
+  letter-spacing: 1px;
+}
+
+.card p {
+  color: #777;
+  margin-bottom: 14px;
+}
+/* -------------------------
+   HERO - full screen image
+   ------------------------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.82);
+  transform-origin: center;
+  transition: transform 12s ease; /* slow subtle zoom */
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 3;
+  pointer-events: none; /* makes button click through the overlay; we'll set pointer-events on button */
+}
+
+/* Logo & slogan inside hero */
+.hero-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 6rem; /* reduce on mobile via media query below */
+  letter-spacing: 10px;
+  margin: 0;
+  color: #f9d67a; /* soft gold */
+  text-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  pointer-events: auto;
+}
+
+.hero-slogan {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.25rem;
+  margin: 18px 0;
+  color: #fff;
+  pointer-events: auto;
+}
+
+/* Hero button */
+.hero-btn {
+  display: inline-block;
+  pointer-events: auto;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: linear-gradient(90deg,#b38e35,#e6c067);
+  color: #111;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hero-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+
+/* -------------------------
+   NAV - centered logo
+   ------------------------- */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 50;
+  background: transparent; /* becomes solid on scroll via JS */
+  transition: background 0.4s ease, padding 0.3s ease;
+}
+
+/* The centered logo */
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 24px;
+}
+
+/* left & right nav lists */
+.nav-links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+/* shrink nav appearance on scroll - CSS portion */
+.site-nav.shrink {
+  background: #0b0b0b;
+  padding: 10px 60px;
+}
+
+/* subtle slow hero image zoom when page idle */
+.hero:hover .hero-image { transform: scale(1.03); }
+
+/* Mobile adjustments */
+@media (max-width: 900px) {
+  .hero-logo { font-size: 3.2rem; letter-spacing: 6px; }
+  .hero-slogan { font-size: 1rem; }
+  .site-nav { padding: 12px 20px; }
+  .nav-links { gap: 12px; font-size: 14px; }
+}
+
+/* Header (Logo + Navigation) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background-image: url('https://i.pinimg.com/736x/b3/f9/87/b3f987a8f1ce546b0557dc89d86c957a.jpg'); /* your image URL here */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* darker transparent overlay */
+  z-index: 0;
+}
+
+.logo, nav {
+  position: relative;
+  z-index: 1;
+}
+
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #f9b24e;
+  text-transform: uppercase;
+}
+
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #f9b24e;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('https://i.pinimg.com/736x/8e/bf/4e/8ebf4e81a5cf6c4b51c01e701afc7d3d.jpg'); /* You can replace this with your own Pinterest image URL */
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55); /* adjust 0.55 darker or lighter */
+}
+
+.intro {
+  background-color: #111; /* matches the fade */
+  color: #f8f3e7;
+  padding: 150px 0;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero h2 {
+  font-family: 'Cinzel', serif;        /* already imported earlier */
+  font-size: 64px;                     /* make it larger */
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;           /* gives that strong editorial look */
+  color: #f9b24e;                      /* soft gold tone */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* subtle glow for depth */
+  margin-bottom: 16px;
+}
+
+
+.hero p {
+  font-family: 'Crimson Pro', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+
+.btn {
+  background: #f9b24e;
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+html { scroll-behavior: smooth; }
+.collection {
+  background: linear-gradient(180deg, #0a0a0a, #1b1b1b);
+  color: #f5f5f5;
+  text-align: center;
+  padding: 100px 40px;
+  position: relative;
+}
+.collection h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+  color: #d4af37;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: filter 0.4s ease;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+/* product card hover + reveal */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform .5s ease, box-shadow .5s ease;
+  background:#111;
+}
+.card img {
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  display: block;
+  transform:scale(1);
+  transition: transform .6s ease, filter .6s ease;
+}
+.card:hover img {
+  transform:scale(1.06);
+  filter:brightness(1.05);
+}
+/* Name reveal (the magic) */
+.name {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f8f3e7;
+  opacity: 0;
+  .card:hover .name {
+  opacity: 1;
+  transform: translateY(0);
+}
+  transform: translateY(15px);
+  transition: all 0.6s ease;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+}
+
+.card:hover img {
+  filter: brightness(1.1);
+}
+
+.card h3 {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  color: #fff;
+}
+.collection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/black-linen.png');
+  opacity: 0.2;
+}
+body {
+  cursor: none;
+}
+.cursor {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #b38e35;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s linear;
+  z-index: 9999;
+}
+.philosophy {
+  padding: 120px 60px;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+.philosophy h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+.philosophy p {
+  font-size: 20px;
+  margin-top: 20px;
+  line-height: 1.7;
+  color: #ddd;
+}
+.card img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.card .name {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.card:hover .name {
+  opacity: 1;
+}
+.fade-in { opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease; }
+.fade-in.show { opacity:1; transform:translateY(0); }
+@media (hover: none) {
+  .card .name {
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.45);
+  }
+}
+/* ===== Gucci-Style Hero ===== */
+.gucci-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.gucci-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #111); /* soft fade */
+  z-index: 5;
+}
+.gucci-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #111);
+  z-index: 5;
+}
+
+.gucci-hero .hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.8);
+  transition: transform 6s ease;
+}
+
+.gucci-hero:hover .hero-bg {
+  transform: scale(1.03);
+}
+
+.gucci-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+.gucci-hero .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+  color: #fff;
+  font-family: 'Cinzel', serif;
+}
+
+.gucci-hero .hero-title {
+  font-size: 5rem;
+  letter-spacing: 12px;
+  color: #f8f3e7;
+}
+
+.gucci-hero .hero-line {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #d6b26d;
+}
+
+.gucci-hero .hero-button {
+  display: inline-block;
+  margin-top: 1.8rem;
+  padding: 12px 32px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #b18a2a, #e6c46a);
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.gucci-hero .hero-button:hover {
+  background: linear-gradient(90deg, #e6c46a, #b18a2a);
+  transform: scale(1.05);
+}
+.gucci-hero {
+  margin-top: 100px; /* adjust this until it looks perfect */
+}
+/* Navbar container */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  z-index: 1000;
+}
+
+/* Left and right menu items */
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 30px;
+}
+
+/* Links */
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e0a352; /* goldish hover */
+}
+
+/* LOGO (BAYKHAN) in center */
+.nav-logo {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  top: 0 !important;
+  transform: none !important;
+  margin: 0 auto;
+  text-align: center;
+  flex: 1;
+}
+/* ==== FADE-UP SCROLL ANIMATION ==== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ==== LUXURY PRODUCT PAGE DECOR ==== */
+.product-page {
+  background: radial-gradient(circle at top left, #111 0%, #1b1b1b 100%);
+  color: #f3f3f3;
+  font-family: 'Playfair Display', serif;
+  min-height: 100vh;
+  padding: 50px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.product-image img {
+  width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(212,175,55,0.15);
+  transition: all 0.6s ease;
+}
+
+.product-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 60px rgba(212,175,55,0.25);
+}
+
+.product-details {
+  max-width: 450px;
+  text-align: left;
+}
+
+.product-details h1 {
+  font-size: 2.8rem;
+  color: #d4af37;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.product-details .tagline {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.product-details ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.product-details ul li strong {
+  color: #d4af37;
+}
+
+.shop-btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  border: 1px solid #d4af37;
+  border-radius: 30px;
+  background: transparent;
+  color: #d4af37;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.shop-btn:hover {
+  background: #d4af37;
+  color: #111;
+  box-shadow: 0 0 20px #d4af37;
+}
+
+
+
